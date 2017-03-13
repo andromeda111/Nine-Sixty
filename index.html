@@ -6,12 +6,25 @@
     <title>Fourteen-Forty</title>
     <!-- css normalize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" integrity="sha256-uHu2MAd1LvCOVEAhvMld4LpJi7dUGS7GVzvG/5B3hlo=" crossorigin="anonymous" />
-    <!-- main.css -->
-    <link defer rel="stylesheet" href="/css/main.css">
+
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- My stuff -->
+    <!-- main.css -->
+    <link defer rel="stylesheet" href="css/main.css">
+    <link defer href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+
     <!-- main.js -->
-    <script defer type="text/javascript" href="/javascript/main.js"></script>
+    <script defer src="javascript/main.js"></script>
 
 </head>
 
@@ -19,13 +32,26 @@
 
     <!-- Header -->
     <header>
+      <!-- <div class="col-xs-12 site-header">
+
+      </div> -->
 
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="test" id="d2">
 
     </main>
+
+    <section class="weather-form">
+        <form class="zip-search" action="index.html" method="post">
+            <fieldset>
+                <label for="zip-search">Enter ZIP Code</label>
+                <input type="text" name="zip-search" id="zip-search" value="">
+                <input type="submit" name="zip-search-submit" value="Submit">
+            </fieldset>
+        </form>
+    </section>
 
     <!-- Footer -->
     <footer>
