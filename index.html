@@ -47,11 +47,7 @@
     <div class="row">
         <div class="container">
             <div class="col-xs-10 col-xs-offset-1 text-center intro-section">
-                <br>
-                <br>
-                <br>
-                <br>
-                <h1>Page Header</h1>
+
 
 
                 <div class="col-xs-12 insp-quote-block">
@@ -62,31 +58,43 @@
 
     </div>
 
+
     <!-- Weather Section -->
 
-    <div class="container top-clear-section">
-        <div class="row>">
+    <div class="row">
+        <div class="container top-clear-section">
             <div class="col-xs-12">
                 <h1>Today's Weather</h1>
             </div>
         </div>
     </div>
-    <section class="body-visible">
+    <div class="row body-visible">
         <div class="container weather-section">
-            <div class="col-xs-4 text-center">
-                temp, other data?
+            <div class="col-xs-4 text-center" id="w-temp">
+                <!-- Current Temperature, Low, High Temps -->
+                <div class="col-xs-6 text-center" id="w-low">
+
+                </div>
+                <div class="col-xs-6 text-center" id="w-high">
+
+                </div>
             </div>
-            <div class="col-xs-4 text-center">
-                icon
+            <div class="col-xs-4 text-center" id="w-icon">
+                <!-- Current Weather Icon -->
             </div>
-            <div class="col-xs-4 text-cente">
-                other data? moon phase
+            <div class="col-xs-4 text-center" id="w-moon">
+                <!-- Moon Phase, Sunrise, Sunset -->
+                <div class="col-xs-6 text-center" id="w-sunrise">
+
+                </div>
+                <div class="col-xs-6 text-center" id="w-sunset">
+
+                </div>
             </div>
         </div>
+    </div>
 
-    </section>
-
-
+<!-- Input form for Zip code -->
     <!-- <section class="weather-form col-xs-6 col-xs-offset-2 panel panel-default">
             <form class="zip-search" action="index.html" method="post">
                 <fieldset>
@@ -100,48 +108,61 @@
 
 
     <!-- GIPHY Section -->
-    <div class="container clear-section">
-        <div class="row>">
+    <div class="row">
+        <div class="container clear-section">
             <div class="col-xs-12">
                 <h1>You are feeling</h1>
             </div>
         </div>
     </div>
-
-
-    <section class="body-visible">
+    <div class="row body-visible">
         <div class="container gif-section">
             <div class="col-xs-12 text-center gif-block">
                 <p>A random gif based on your mood</p>
             </div>
         </div>
-    </section>
+    </div>
 
 
     <!-- Horoscope Section -->
-    <div class="container clear-section">
-        <div class="row>">
+    <div class="row">
+        <div class="container clear-section">
             <div class="col-xs-12">
                 <h1>Daily Horoscope</h1>
             </div>
         </div>
     </div>
-
-
-    <section class="body-visible">
+    <div class="row body-visible">
         <div class="container horoscope-section">
-            <div class="col-xs-4 text-center horoscope-block">
-              Sign
+            <div class="col-xs-3 text-center" id="h-sign">
+              <!-- Sign -->
             </div>
-            <div class="col-xs-4 text-center horoscope-block">
-              Text
+            <div class="col-xs-6 text-center" id="h-text">
+              <!-- Text -->
             </div>
-            <div class="col-xs-4 text-center horoscope-block">
-              Image
+            <div class="col-xs-3 text-center" id="h-icon">
+              <!-- Image -->
             </div>
         </div>
-    </section>
+    </div>
 
+    <!-- Reddit Section -->
+    <div class="row">
+        <div class="container clear-section">
+            <div class="col-xs-12">
+                <h1>Showerthought</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row body-visible">
+        <div class="container reddit-section">
+            <div class="col-xs-10 col-xs-offset-1 text-center" id="r-showerthought">
+              <!-- Showerthought -->
+
+            </div>
+
+        </div>
+    </div>
 
 
 
