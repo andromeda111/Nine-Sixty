@@ -53,33 +53,33 @@
 
 
 // Weather API - OpenWeatherMap --- WORKING
-// $('.zip-search').submit('click', function(e){
-//   e.preventDefault();
-//   let value = $('#zip-search').val()
-//   console.log(value);
-//   $.ajax({
-//     url: `http://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9`,
-//     method: 'GET'
-//   }).then(function(result) {
-//     let weatherTemp = result.main.temp;
-//     let weatherTempMin = result.main.temp_min;
-//     let weatherTempMax = result.main.temp_max;
-//     let weatherDescription = result.weather[0].description;
-//     let weatherID = result.weather[0].id;
-//     let weatherIcon = result.weather[0].icon;
-//     let weatherSunrise = result.sys.sunrise;
-//     let weatherSunset = result.sys.sunset;
-//     console.log(result);
-//     $('.test').append(`<h3>${weatherTemp}</h3>`)
-//     $('.test').append(`<h3>${weatherDescription}</h3>`)
-//     $('.test').append(`<h3>${weatherIcon}</h3><img src="http://openweathermap.org/img/w/${weatherIcon}.png">`)
-//     $('.test').append(`<h3>${weatherID}</h3><i class="owf owf-${weatherID} owf-5x"></i>`)
-//     $('.test').append(`<h3>${weatherSunset}</h3>`)
-//   }).catch(function(error) {
-//     console.log('Error: ', error);
-//   })
-//
-// })
+$('.zip-search').submit('click', function(e){
+  e.preventDefault();
+  let value = $('#zip-search').val()
+  console.log(value);
+  $.ajax({
+    url: `http://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9`,
+    method: 'GET'
+  }).then(function(result) {
+    let weatherTemp = result.main.temp;
+    let weatherTempMin = result.main.temp_min;
+    let weatherTempMax = result.main.temp_max;
+    let weatherDescription = result.weather[0].description;
+    let weatherID = result.weather[0].id;
+    let weatherIcon = result.weather[0].icon;
+    let weatherSunrise = result.sys.sunrise;
+    let weatherSunset = result.sys.sunset;
+    console.log(result);
+    $('.test').append(`<h3>${weatherTemp}</h3>`)
+    $('.test').append(`<h3>${weatherDescription}</h3>`)
+    $('.test').append(`<h3>${weatherIcon}</h3><img src="http://openweathermap.org/img/w/${weatherIcon}.png">`)
+    $('.test').append(`<h3>${weatherID}</h3><i class="owf owf-${weatherID} owf-5x"></i>`)
+    $('.test').append(`<h3>${weatherSunset}</h3>`)
+  }).catch(function(error) {
+    console.log('Error: ', error);
+  })
+
+})
 
 
 // // GIPHY -- Random Gif --- WORKING

@@ -1,4 +1,45 @@
-.site-header {
+/*html {
+    background: url('../images/rain.jpg') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}*/
+
+
+/*.site-header {
   background-color: gray;
   min-height: 60px;
+}*/
+
+html,
+body,
+.view {
+    height: 100%;
 }
+
+.weather-form {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.view {
+    background: url('../images/landing.jpg')no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.mid-sec {
+  height: 80px;
+}
+  /*opacity: 0.1;
+}
+
+.weather-form {
+
+}
+
+h1 {
+  color: black !important;
+}*/
