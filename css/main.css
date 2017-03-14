@@ -1,45 +1,65 @@
-/*html {
-    background: url('../images/rain.jpg') no-repeat center center fixed;
+html {
+    background: url('../images/landing.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
-}*/
-
-
-/*.site-header {
-  background-color: gray;
-  min-height: 60px;
-}*/
-
-html,
-body,
-.view {
-    height: 100%;
 }
 
-.weather-form {
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.view {
-    background: url('../images/landing.jpg')no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.mid-sec {
-  height: 80px;
-}
-  /*opacity: 0.1;
-}
-
-.weather-form {
+body {
+  padding-top: 40px;
+  background: rgba(255, 255, 255, 0);
+  font-family: 'Roboto', sans-serif;
 
 }
 
-h1 {
-  color: black !important;
-}*/
+h1, h2, h3, h4 {
+  color: white;
+  text-shadow: 2px 2px 5px rgba(50, 50, 50, 1);
+}
+
+
+/* Clear Spaces for Section Headers*/
+
+.top-clear-section {
+  min-height: 100px;
+  display: flex;
+align-items: center;
+}
+
+.clear-section {
+  min-height: 142px;
+  display: flex;
+align-items: center;
+}
+
+
+/*    Sections    */
+
+.body-visible {
+  background: white;
+}
+
+.intro-section {
+  min-height: 300px;
+}
+
+.insp-quote-block {
+  padding-top: 100px;
+}
+
+.weather-section {
+  min-height: 200px;
+  padding: 20px 0;
+}
+
+.gif-section {
+  min-height: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.horoscope-section {
+  min-height: 10px;
+  padding: 20px 0;
+}

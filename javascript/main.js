@@ -1,3 +1,16 @@
+// Forismatic - Quote Generator --- WORKING
+$.ajax({
+  url: 'http://galvanize-cors-proxy.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en',
+  method: 'GET'
+}).then(function(result) {
+  console.log(result.quoteAuthor);
+  let quoteTxt = result.quoteText;
+  let quoteAuth = result.quoteAuthor;
+  $('.insp-quote-block').append(`<h3>"${quoteTxt}"</h3>`)
+  $('.insp-quote-block').append(`<h4>${quoteAuth}</h4>`)
+}).catch(function(error) {
+  console.log('Error: ', error);
+})
 
 // REDDIT SCRAPER Showerthoughts -- WORKING
 // $.ajax({
@@ -19,37 +32,24 @@
 // });
 
 // Horiscope API - WORKING
-// $('.zip-search').submit('click', function(e){
-//   e.preventDefault();
-//   let sunsign = $('#zip-search').val()
-//   console.log(sunsign);
-// $.ajax({
-//   url: `http://galvanize-cors-proxy.herokuapp.com/http://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
-//   method: 'GET'
-// }).then(function(result) {
-//   console.log(result);
-//   let horo = result.horoscope;
-//   $('.test').append(`<h3>${horo}</h3>`)
-//   // $('.test').append(`<h4>${quoteAuth}</h4>`)
-// }).catch(function(error) {
-//   console.log('Error: ', error);
-// })
-// })
+$('.zip-search').submit('click', function(e){
+  e.preventDefault();
+  let sunsign = $('#zip-search').val()
+  console.log(sunsign);
+$.ajax({
+  url: `http://galvanize-cors-proxy.herokuapp.com/http://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
+  method: 'GET'
+}).then(function(result) {
+  console.log(result);
+  let horo = result.horoscope;
+  $('.horoscope-block').append(`<h3>${horo}</h3>`)
+  // $('.test').append(`<h4>${quoteAuth}</h4>`)
+}).catch(function(error) {
+  console.log('Error: ', error);
+})
+})
 
-//
-// Forismatic - Quote Generator --- WORKING
-// $.ajax({
-//   url: 'http://galvanize-cors-proxy.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en',
-//   method: 'GET'
-// }).then(function(result) {
-//   console.log(result.quoteAuthor);
-//   let quoteTxt = result.quoteText;
-//   let quoteAuth = result.quoteAuthor;
-//   // $('.test').append(`<h3>${quoteTxt}</h3>`)
-//   // $('.test').append(`<h4>${quoteAuth}</h4>`)
-// }).catch(function(error) {
-//   console.log('Error: ', error);
-// })
+
 
 
 // Weather API - OpenWeatherMap --- WORKING
@@ -82,21 +82,21 @@ $('.zip-search').submit('click', function(e){
 })
 
 
-// // GIPHY -- Random Gif --- WORKING
-// $('.zip-search').submit('click', function(e){
-//   e.preventDefault();
-//   let value = $('#zip-search').val()
-//   console.log(value);
-// $.ajax({
-//     url: `http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${value}`,
-//     type: "GET",
-//     success: function(result1) {
-//       let gifUrl = result1.data.image_url;
-//       console.log(gifUrl);
-//       $('.test').append(`<img src="${gifUrl}" alt="">`)
-//     }
-// });
-// });
+// GIPHY -- Random Gif --- WORKING
+$('.zip-search').submit('click', function(e){
+  e.preventDefault();
+  let value = $('#zip-search').val()
+  console.log(value);
+$.ajax({
+    url: `http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${value}`,
+    type: "GET",
+    success: function(result1) {
+      let gifUrl = result1.data.image_url;
+      console.log(gifUrl);
+      $('.gif-block').append(`<img src="${gifUrl}" alt="">`)
+    }
+});
+});
 
 
 
