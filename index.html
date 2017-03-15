@@ -19,6 +19,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- My stuff -->
+<!--
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-HzUaiJdCTIY/RL2vDPRGdEQHHahjzwoJJzGUkYjHVzTwXFQ2QN/nVgX7tzoMW3Ov" crossorigin="anonymous"> -->
     <!-- main.css -->
     <link defer rel="stylesheet" href="css/main.css">
     <link defer href="css/owfont-regular.css" rel="stylesheet" type="text/css">
@@ -34,68 +36,102 @@
 <body>
     <!-- Navigation Bar / Header -->
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div>
                 <a class="navbar-brand" href="#">Site Title</a>
             </div>
         </div>
     </nav>
 
+    <!-- Initial User Input Section -->
+    <section class="row" id="input-section">
+        <div class="container user-input-section">
+            <div class="col-xs-6 panel panel-default text-center body-visible">
+                <p>Enter the following information:</p>
+                <form class="user-search" action="index.html" method="post">
+                    <!-- <fieldset class="form-group"> -->
+                    <div class="row">
+                        <div class="form-group col-xs-6 col-xs-offset-3">
+                            <label for="zip-search">What is your ZIP code?</label>
+                            <input class="form-control" type="text" name="zip-search" id="zip-search" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <label for="mood-search">What is your current mood?</label>
+                            <input class="form-control" type="text" name="mood-search" id="mood-search" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <label for="sign-search">What is your Zodiac sign?:</label>
+                            <input class="form-control" type="text" name="sign-search" id="sign-search" value="">
+                        </div>
+                    </div>
+                    <input type="submit" name="search-submit" value="Submit">
+                    <!-- </fieldset> -->
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toggle for main content visibility -->
+    <main class="section-visible-toggle" id="content-section">
 
 
-    <!-- Intro Section -->
-    <div class="row">
-        <div class="container">
-            <div class="col-xs-10 col-xs-offset-1 text-center intro-section">
+        <!-- Intro Section -->
+        <div class="row">
+            <div class="container">
+                <div class="col-xs-10 col-xs-offset-1 text-center intro-section">
 
 
 
-                <div class="col-xs-12 insp-quote-block">
+                    <div class="col-xs-12 insp-quote-block">
 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Weather Section -->
+
+        <div class="row">
+            <div class="container top-clear-section">
+                <div class="col-xs-12">
+                    <h1>Today's Weather</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row body-visible">
+            <div class="container weather-section">
+                <div class="col-xs-4 text-center" id="w-temp">
+                    <!-- Current Temperature, Low, High Temps -->
+                    <div class="col-xs-6 text-center" id="w-low">
+
+                    </div>
+                    <div class="col-xs-6 text-center" id="w-high">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 text-center" id="w-icon">
+                    <!-- Current Weather Icon -->
+                </div>
+                <div class="col-xs-4 text-center" id="w-moon">
+                    <!-- Moon Phase, Sunrise, Sunset -->
+                    <div class="col-xs-6 text-center" id="w-sunrise">
+
+                    </div>
+                    <div class="col-xs-6 text-center" id="w-sunset">
+
+                    </div>
                 </div>
             </div>
         </div>
 
-    </div>
-
-
-    <!-- Weather Section -->
-
-    <div class="row">
-        <div class="container top-clear-section">
-            <div class="col-xs-12">
-                <h1>Today's Weather</h1>
-            </div>
-        </div>
-    </div>
-    <div class="row body-visible">
-        <div class="container weather-section">
-            <div class="col-xs-4 text-center" id="w-temp">
-                <!-- Current Temperature, Low, High Temps -->
-                <div class="col-xs-6 text-center" id="w-low">
-
-                </div>
-                <div class="col-xs-6 text-center" id="w-high">
-
-                </div>
-            </div>
-            <div class="col-xs-4 text-center" id="w-icon">
-                <!-- Current Weather Icon -->
-            </div>
-            <div class="col-xs-4 text-center" id="w-moon">
-                <!-- Moon Phase, Sunrise, Sunset -->
-                <div class="col-xs-6 text-center" id="w-sunrise">
-
-                </div>
-                <div class="col-xs-6 text-center" id="w-sunset">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Input form for Zip code -->
-    <!-- <section class="weather-form col-xs-6 col-xs-offset-2 panel panel-default">
+        <!-- Input form for Zip code -->
+        <!-- <section class="weather-form col-xs-6 col-xs-offset-2 panel panel-default">
             <form class="zip-search" action="index.html" method="post">
                 <fieldset>
                     <label for="zip-search">Enter ZIP Code</label>
@@ -107,88 +143,66 @@
         </section> -->
 
 
-    <!-- GIPHY Section -->
-    <div class="row">
-        <div class="container clear-section">
-            <div class="col-xs-12">
-                <h1>You are feeling</h1>
+        <!-- GIPHY Section -->
+        <div class="row">
+            <div class="container clear-section">
+                <div class="col-xs-12">
+                    <h1>You are feeling</h1>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row body-visible">
-        <div class="container gif-section">
-            <div class="col-xs-12 text-center gif-block">
-                <p>A random gif based on your mood</p>
+        <div class="row body-visible">
+            <div class="container gif-section">
+                <div class="col-xs-12 text-center gif-block">
+                    <p>A random gif based on your mood</p>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <!-- Horoscope Section -->
-    <div class="row">
-        <div class="container clear-section">
-            <div class="col-xs-12">
-                <h1>Daily Horoscope</h1>
+        <!-- Horoscope Section -->
+        <div class="row">
+            <div class="container clear-section">
+                <div class="col-xs-12">
+                    <h1>Daily Horoscope</h1>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row body-visible">
-        <div class="container horoscope-section">
-            <div class="col-xs-3 text-center" id="h-sign">
-              <!-- Sign -->
-            </div>
-            <div class="col-xs-6 text-center" id="h-text">
-              <!-- Text -->
-            </div>
-            <div class="col-xs-3 text-center" id="h-icon">
-              <!-- Image -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Reddit Section -->
-    <div class="row">
-        <div class="container clear-section">
-            <div class="col-xs-12">
-                <h1>Showerthought</h1>
+        <div class="row body-visible">
+            <div class="container horoscope-section">
+                <div class="col-xs-3 text-center" id="h-sign">
+                    <!-- Sign -->
+                </div>
+                <div class="col-xs-6 text-center" id="h-text">
+                    <!-- Text -->
+                </div>
+                <div class="col-xs-3 text-center" id="h-icon">
+                    <!-- Image -->
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row body-visible">
-        <div class="container reddit-section">
-            <div class="col-xs-10 col-xs-offset-1 text-center" id="r-showerthought">
-              <!-- Showerthought -->
+
+        <!-- Reddit Section -->
+        <div class="row">
+            <div class="container clear-section">
+                <div class="col-xs-12">
+                    <h1>Showerthought</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row body-visible">
+            <div class="container reddit-section">
+                <div class="col-xs-10 col-xs-offset-1 text-center" id="r-showerthought">
+                    <!-- Showerthought -->
+
+                </div>
 
             </div>
-
         </div>
-    </div>
 
 
 
-
-
-    <section class="col-xs-12">
-        <form class="zip-search" action="index.html" method="post">
-            <fieldset>
-                <label for="zip-search">Enter ZIP Code</label>
-                <input type="text" name="zip-search" id="zip-search" value="">
-                <input type="submit" name="zip-search-submit" value="Submit">
-            </fieldset>
-        </form>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-        <h1>TEST</h1>
-
-    </section>
+    </main>
     <!-- Footer -->
     <footer>
 

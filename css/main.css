@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    padding-top: 40px;
+    padding-top: 56px;
     background: rgba(255, 255, 255, 0);
     font-family: 'Roboto', sans-serif;
 }
@@ -17,6 +17,13 @@ h1, h2, h3 {
     text-shadow: 2px 2px 5px rgba(50, 50, 50, 1);
 }
 
+/*nav {
+  display: flex;
+}*/
+
+.section-visible-toggle {
+  display: none
+}
 
 /* Clear Spaces for Section Headers*/
 
@@ -34,6 +41,19 @@ h1, h2, h3 {
 
 
 /*    Sections    */
+
+.user-input-section {
+  min-height: 300px;
+  padding-top: 100px;
+
+  display: flex;
+  justify-content: center;
+
+}
+
+/*.user-input-box {
+
+}*/
 
 .body-visible {
     background: white;

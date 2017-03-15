@@ -1,4 +1,6 @@
+////////////////////////////////////////////////////
 // DATE VARIABLES  and Conversion Functions-- GLOBAL
+////////////////////////////////////////////////////
 let getDay;
 let getMonth;
 let getDate;
@@ -72,13 +74,20 @@ function convertMonth() {
     }
     return result;
 }
+// Is it best to have all of my ajax calls under one of these?
+$('.user-search').submit('click', function(e) {
+    e.preventDefault();
+    $('#input-section').addClass('section-visible-toggle');
+    $('#content-section').removeClass('section-visible-toggle');
+})
 
+////////////////////////////////////////////////////
 // Forismatic - Quote Generator --- WORKING
+////////////////////////////////////////////////////
 $.ajax({
     url: 'http://galvanize-cors-proxy.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en',
     method: 'GET'
 }).then(function(result) {
-    console.log(result.quoteAuthor);
     let quoteTxt = result.quoteText;
     let quoteAuth = result.quoteAuthor;
     $('.insp-quote-block').append(`<h3>"${quoteTxt}"</h3>`)
@@ -88,11 +97,12 @@ $.ajax({
 })
 
 
+////////////////////////////////////////////////////
 // Weather API - OpenWeatherMap --- WORKING
-$('.zip-search').submit('click', function(e) {
+////////////////////////////////////////////////////
+$('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#zip-search').val()
-    console.log(value);
     $.ajax({
         url: `http://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9`,
         method: 'GET'
@@ -120,8 +130,7 @@ $('.zip-search').submit('click', function(e) {
         // Date Conversions
         let setDay = convertDay();
         let setMonth = convertMonth();
-        // API Results
-        console.log(result);
+
         // Append API Results to HTML
         // Date
         $('.intro-section').prepend(`<h1>${setMonth} ${getDate}, ${getYear}</h1>`)
@@ -135,18 +144,17 @@ $('.zip-search').submit('click', function(e) {
         $('#w-moon').prepend(`<p>moon phase here</p>`)
         $('#w-sunrise').append(`<p>Sunrise: ${getHoursRise}:${getMinutesRise} a.m.</p>`)
         $('#w-sunset').append(`<p>Sunset: ${getHoursSet}:${getMinutesSet} p.m.</p>`)
-        console.log(`AJAX RUN ${getDate}`);
     }).catch(function(error) {
         console.log('Error: ', error);
     })
 })
 
-
+////////////////////////////////////////////////////
 // GIPHY -- Random Gif --- WORKING
-$('.zip-search').submit('click', function(e) {
+////////////////////////////////////////////////////
+$('.user-search').submit('click', function(e) {
     e.preventDefault();
-    let value = $('#zip-search').val()
-    console.log(value);
+    let value = $('#mood-search').val()
     $.ajax({
         url: `http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${value}`,
         type: "GET",
@@ -158,12 +166,12 @@ $('.zip-search').submit('click', function(e) {
     });
 });
 
-
+////////////////////////////////////////////////////
 // Horiscope API - WORKING
-$('.zip-search').submit('click', function(e) {
+////////////////////////////////////////////////////
+$('.user-search').submit('click', function(e) {
     e.preventDefault();
-    let sunsign = $('#zip-search').val()
-    console.log(sunsign);
+    let sunsign = $('#sign-search').val()
     $.ajax({
         url: `http://galvanize-cors-proxy.herokuapp.com/http://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
         method: 'GET'
@@ -178,8 +186,9 @@ $('.zip-search').submit('click', function(e) {
     })
 })
 
-
+////////////////////////////////////////////////////
 // REDDIT SCRAPER Showerthoughts -- WORKING
+////////////////////////////////////////////////////
 $.ajax({
     dataType: "json",
     url: "https://www.reddit.com/r/showerthoughts/.json",
@@ -201,17 +210,3 @@ $.ajax({
         $('#r-showerthought').append(`<p>Via <a href="${url}">reddit.com/r/showerthoughts</a></p>`)
     }
 });
-
-
-
-
-console.log(`END OF DATA ${getDate}`);
-
-
-// UNIX TIME to REAL TIME -- CONVERSION
-// var sec = 1425909686;
-// var date = new Date(sec * 1000);
-// var timestr = date.toLocaleTimeString();
-//
-// console.log(date, timestr);
-//
