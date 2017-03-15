@@ -5,6 +5,8 @@ let getDay;
 let getMonth;
 let getDate;
 let getYear;
+let moonPhase;
+let sunsign;
 
 function convertDay() {
     switch (getDay) {
@@ -74,6 +76,79 @@ function convertMonth() {
     }
     return result;
 }
+// Moon Phase to Image Link
+function getPhase() {
+    switch (moonPhase) {
+        case "New Moon":
+            result = `<img src="images/lunar/new-moon.png"</img>`
+            break;
+        case "Waxing Crescent":
+            result = `<img src="images/lunar/wax-cresc.png"</img>`
+            break;
+        case "First Quarter":
+            result = `<img src="images/lunar/first-qtr.png"</img>`
+            break;
+        case "Waxing Gibbous":
+            result = `<img src="images/lunar/wax-gib.png"</img>`
+            break;
+        case "Full Moon":
+            result = `<img src="images/lunar/full-moon.png"</img>`
+            break;
+        case "Waning Gibbous":
+            result = `<img src="images/lunar/wan-gib.png"</img>`
+            break;
+        case "Last Quarter":
+            result = `<img src="images/lunar/last-qtr.png"</img>`
+            break;
+        default:
+            result = `<img src="images/lunar/wan-cresc.png"</img>`
+            break;
+    }
+    return result;
+}
+
+function getSignImg() {
+    switch (sunsign) {
+        case 'aries':
+            result = `<img src="images/sign/aries.png"</img>`
+            break;
+        case 'aquarius':
+            result = `<img src="images/sign/aquarius.png"</img>`
+            break;
+        case 'cancer':
+            result = `<img src="images/sign/cancer.png"</img>`
+            break;
+        case 'capricorn':
+            result = `<img src="images/sign/capricorn.png"</img>`
+            break;
+        case 'gemini':
+            result = `<img src="images/sign/gemini.png"</img>`
+            break;
+        case 'leo':
+            result = `<img src="images/sign/leo.png"</img>`
+            break;
+        case 'libra':
+            result = `<img src="images/sign/libra.png"</img>`
+            break;
+        case 'pisces':
+            result = `<img src="images/sign/pisces.png"</img>`
+            break;
+        case 'sagittarius':
+            result = `<img src="images/sign/sagittarius.png"</img>`
+            break;
+        case 'scorpio':
+            result = `<img src="images/sign/scorpio.png"</img>`
+            break;
+        case 'taurus':
+            result = `<img src="images/sign/taurus.png"</img>`
+            break;
+        default:
+            result = `<img src="images/sign/virgo.png"</img>`
+            break;
+    }
+    return result;
+}
+
 // Is it best to have all of my ajax calls under one of these?
 $('.user-search').submit('click', function(e) {
     e.preventDefault();
@@ -91,7 +166,7 @@ $.ajax({
     let quoteTxt = result.quoteText;
     let quoteAuth = result.quoteAuthor;
     $('.insp-quote-block').append(`<h3>"${quoteTxt}"</h3>`)
-    $('.insp-quote-block').append(`<h4>${quoteAuth}</h4>`)
+    $('.insp-quote-block').append(`<h4>–${quoteAuth}</h4>`)
 }).catch(function(error) {
     console.log('Error: ', error);
 })
@@ -136,18 +211,39 @@ $('.user-search').submit('click', function(e) {
         $('.intro-section').prepend(`<h1>${setMonth} ${getDate}, ${getYear}</h1>`)
         $('.intro-section').prepend(`<h1>Welcome to ${setDay}</h1>`)
         // Weather
-        $('#w-temp').prepend(`<p>${weatherTemp}<sup>&#8457;</sup></p>`)
+        $('#w-temp').prepend(`<h5>${weatherTemp}<sup>&#8457;</sup></h5>`)
         $('#w-low').append(`<p>Low: ${weatherTempMin}<sup>&#8457;</sup</p>`)
         $('#w-high').append(`<p>High: ${weatherTempMax}<sup>&#8457;</sup></p>`)
         $('#w-icon').append(`<i class="owf owf-${weatherID} owf-5x">`)
-        $('#w-icon').append(`<h4>${weatherDescription}</h4>`)
-        $('#w-moon').prepend(`<p>moon phase here</p>`)
+        $('#w-desc').append(`<p>${weatherDescription}</p>`)
+        // $('#w-moon').prepend(`<p>moon phase here</p>`)
         $('#w-sunrise').append(`<p>Sunrise: ${getHoursRise}:${getMinutesRise} a.m.</p>`)
         $('#w-sunset').append(`<p>Sunset: ${getHoursSet}:${getMinutesSet} p.m.</p>`)
     }).catch(function(error) {
         console.log('Error: ', error);
     })
 })
+
+////////////////////////////////////////////////////
+// Moon Phase API -  --- WORKING
+////////////////////////////////////////////////////
+$('.user-search').submit('click', function(e) {
+    e.preventDefault();
+    let value = $('#zip-search').val()
+    $.ajax({
+        url: `http://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785`,
+        method: 'GET'
+    }).then(function(result) {
+        moonPhase = JSON.parse(result)[0].Phase;
+        console.log(moonPhase);
+        let phaseLink = getPhase();
+        $('#w-moon').prepend(`${phaseLink}`)
+        $('#w-moon').append(`<br>${moonPhase}`)
+    }).catch(function(error) {
+        console.log('Error: ', error);
+    })
+})
+
 
 ////////////////////////////////////////////////////
 // GIPHY -- Random Gif --- WORKING
@@ -160,7 +256,6 @@ $('.user-search').submit('click', function(e) {
         type: "GET",
         success: function(result1) {
             let gifUrl = result1.data.image_url;
-            console.log(gifUrl);
             $('.gif-block').append(`<img src="${gifUrl}" alt="">`)
         }
     });
@@ -171,16 +266,16 @@ $('.user-search').submit('click', function(e) {
 ////////////////////////////////////////////////////
 $('.user-search').submit('click', function(e) {
     e.preventDefault();
-    let sunsign = $('#sign-search').val()
+    sunsign = $('#sign-search').val()
     $.ajax({
         url: `http://galvanize-cors-proxy.herokuapp.com/http://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
         method: 'GET'
     }).then(function(result) {
-        console.log(result);
+        let signLink = getSignImg();
         let horoText = result.horoscope;
-        $('#h-sign').append(`<p>${sunsign}</p>`)
+        $('#h-sign').append(`<p>${sunsign}<p>`)
         $('#h-text').append(`<p>${horoText}</p>`)
-        // $('#h-text').append(`<p>${horoAuth}</p>`)
+        $('#h-icon').append(`${signLink}`)
     }).catch(function(error) {
         console.log('Error: ', error);
     })
@@ -196,13 +291,9 @@ $.ajax({
         let current = 0;
         let thought = '';
         let url = result.data.children[0].data.url;
-        console.log(result);
-        console.log(result.data.children.length);
-        console.log(result.data.children[0].data.ups);
         for (var i = 0; i < result.data.children.length; i++) {
             if (result.data.children[i].data.ups >= current) {
                 current = result.data.children[i].data.ups;
-                console.log(current);
                 thought = result.data.children[i].data.title;
             }
         }

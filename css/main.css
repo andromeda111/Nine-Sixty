@@ -10,15 +10,29 @@ body {
     padding-top: 56px;
     background: rgba(255, 255, 255, 0);
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
-h1, h2, h3 {
+
+/* Fonts */
+h1, h2, h3, h4 {
     color: white;
     text-shadow: 2px 2px 5px rgba(50, 50, 50, 1);
 }
 
-/*nav {
+h5 {
+  font-size: 10rem;
+}
+
+#h-sign {
+  font-size: 5rem;
+  font-style: italic;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*h6 {
+  font-size: 8rem;
 }*/
 
 .section-visible-toggle {
@@ -61,17 +75,30 @@ h1, h2, h3 {
 
 .intro-section {
     min-height: 300px;
+    padding-top: 80px;
 }
 
 .insp-quote-block {
-    padding-top: 100px;
+    padding-top: 40px;
 }
 
 .weather-section {
     min-height: 200px;
     padding: 20px 0;
-    display: flex;
-    align-items: center;
+}
+
+#w-icon {
+  padding-top: 10px;
+}
+
+#w-moon>img {
+  padding-top: 10px;
+  width: 100px;
+}
+
+#h-icon>img {
+  padding-top: 10px;
+  width: 100px;
 }
 
 .gif-section {
