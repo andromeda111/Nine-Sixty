@@ -1,5 +1,26 @@
-html {
+.landing {
     background: url('../images/landing.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.rain-light {
+    background: url('../images/weather/rain-light.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.drizzle-rain {
+    background: url('../images/weather/drizzle-rain.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.drizzle-light {
+    background: url('../images/weather/drizzle-light.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -17,7 +38,7 @@ body {
 /* Fonts */
 h1, h2, h3, h4 {
     color: white;
-    text-shadow: 2px 2px 5px rgba(50, 50, 50, 1);
+    text-shadow: 2px 2px 5px rgba(30, 30, 30, 1);
 }
 
 h5 {

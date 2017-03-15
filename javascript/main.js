@@ -7,6 +7,7 @@ let getDate;
 let getYear;
 let moonPhase;
 let sunsign;
+let weatherID;
 
 function convertDay() {
     switch (getDay) {
@@ -149,6 +150,41 @@ function getSignImg() {
     return result;
 }
 
+
+function selectBackground() {
+    let idNum = weatherID.toString()
+    // Drizzle
+    if (idNum[0] === '3') {
+        if (idNum === '300' || idNum === '301' || idNum === '302' || idNum === '310') {
+            $('html').removeClass('landing').addClass('drizzle-light');
+        } else {
+            $('html').removeClass('landing').addClass('drizzle-rain');
+        }
+    }
+    // Rain
+    if (idNum[0] === '5') {
+        if (idNum === '500') {
+            $('html').removeClass('landing').addClass('rain-light');
+        } else if (idNum === '501') {
+            $('html').removeClass('landing').addClass('rain-moderate');
+        } else {
+            $('html').removeClass('landing').addClass('rain-shower');
+        }
+    }
+    // Rain
+    if (idNum[0] === '5') {
+        if (idNum === '500') {
+            $('html').removeClass('landing').addClass('rain-light');
+        } else if (idNum === '501') {
+            $('html').removeClass('landing').addClass('rain-moderate');
+        } else {
+            $('html').removeClass('landing').addClass('rain-shower');
+        }
+    }
+
+}
+
+
 // Is it best to have all of my ajax calls under one of these?
 $('.user-search').submit('click', function(e) {
     e.preventDefault();
@@ -187,7 +223,7 @@ $('.user-search').submit('click', function(e) {
         let weatherTempMin = Math.round(result.main.temp_min);
         let weatherTempMax = Math.round(result.main.temp_max);
         let weatherDescription = result.weather[0].description;
-        let weatherID = result.weather[0].id;
+        weatherID = result.weather[0].id;
         let weatherIcon = result.weather[0].icon;
         let weatherSunrise = result.sys.sunrise;
         let weatherSunset = result.sys.sunset;
@@ -207,6 +243,7 @@ $('.user-search').submit('click', function(e) {
         let setMonth = convertMonth();
 
         // Append API Results to HTML
+        selectBackground();
         // Date
         $('.intro-section').prepend(`<h1>${setMonth} ${getDate}, ${getYear}</h1>`)
         $('.intro-section').prepend(`<h1>Welcome to ${setDay}</h1>`)
