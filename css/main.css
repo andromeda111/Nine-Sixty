@@ -1,6 +1,18 @@
+/* Global html styling */
+
 * {
     box-sizing: border-box;
 }
+
+body {
+    padding-top: 56px;
+    background: rgba(255, 255, 255, 0);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+
+/* Change backround based on weather */
 
 .landing {
     background: url('../images/landing.jpg') no-repeat center center fixed;
@@ -51,22 +63,15 @@
 }
 
 .clear-skies {
-    background: url('../images/weather/landing.jpg') no-repeat center center fixed;
+    background: url('../images/weather/clear-skies.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-body {
-    padding-top: 56px;
-    background: rgba(255, 255, 255, 0);
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-}
 
-
-/* Fonts */
+/* Fonts and Headings */
 
 h1, h2, h3, h4 {
     color: white;
@@ -86,20 +91,15 @@ h5 {
 }
 
 .navbar-brand {
-  color: black !important;
+    color: black !important;
 }
-
-
-/*h6 {
-  font-size: 8rem;
-}*/
 
 .section-visible-toggle {
     display: none
 }
 
 
-/* Clear Spaces for Section Headers*/
+/* Make section backgrounds visible or invisible */
 
 .top-clear-section {
     min-height: 100px;
@@ -113,8 +113,12 @@ h5 {
     align-items: center;
 }
 
+.body-visible {
+    background: white;
+}
 
-/*    Sections    */
+
+/* User Input Section*/
 
 .user-input-section {
     min-height: 300px;
@@ -124,13 +128,7 @@ h5 {
 }
 
 
-/*.user-input-box {
-
-}*/
-
-.body-visible {
-    background: white;
-}
+/* Intro and Quote Section    */
 
 .intro-section {
     min-height: 300px;
@@ -140,6 +138,9 @@ h5 {
 .insp-quote-block {
     padding-top: 40px;
 }
+
+
+/* Weather Section */
 
 .weather-section {
     min-height: 200px;
@@ -155,10 +156,8 @@ h5 {
     width: 100px;
 }
 
-#h-icon>img {
-    padding-top: 10px;
-    width: 100px;
-}
+
+/* Gif Section*/
 
 .gif-section {
     min-height: 10px;
@@ -168,12 +167,23 @@ h5 {
     align-items: center;
 }
 
+
+/* Horoscope Section */
+
 .horoscope-section {
     min-height: 10px;
     padding: 20px 0;
     display: flex;
     align-items: center;
 }
+
+#h-icon>img {
+    padding-top: 10px;
+    width: 100px;
+}
+
+
+/* Reddit Section */
 
 .reddit-section {
     min-height: 10px;
@@ -207,6 +217,27 @@ ul {
     user-select: none;
 }
 
+#todo-input {
+    width: 260px;
+    height: 41px;
+    padding-bottom: 4px;
+    /*padding-top: 4px;*/
+}
+
+.todo-section {
+    min-height: 400px;
+    margin-bottom: 120px;
+}
+
+.todo-enter {
+    padding-bottom: 20px;
+}
+
+.todo-list-master {
+    padding: 20px 5px;
+}
+
+
 /* Darker background-color on hover */
 
 #list-items>li:hover {
@@ -223,7 +254,7 @@ ul {
 }
 
 
-/* Add a "checked" mark when clicked on */
+/* Add a "checked" mark when clicking on item */
 
 #list-items>li.checked::before {
     content: '';
@@ -239,7 +270,7 @@ ul {
 }
 
 
-/* Style the close (DELETE) button */
+/* Style the Delete button */
 
 .close {
     font-size: 3rem;
@@ -253,23 +284,4 @@ ul {
 .close:hover {
     background-color: rgba(150, 150, 150, .6);
     color: white;
-}
-
-#todo-input {
-    width: 260px;
-    height: 41px;
-    padding-bottom: 4px;
-    /*padding-top: 4px;*/
-}
-
-.todo-section {
-    min-height: 500px;
-}
-
-.todo-enter {
-    padding-bottom: 20px;
-}
-
-.todo-list-master {
-    padding: 20px 5px;
 }
