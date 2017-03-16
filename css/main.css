@@ -85,6 +85,10 @@ h5 {
     justify-content: center;
 }
 
+.navbar-brand {
+  color: black !important;
+}
+
 
 /*h6 {
   font-size: 8rem;

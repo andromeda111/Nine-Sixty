@@ -196,7 +196,7 @@ $('.user-search').submit('click', function(e) {
 // Forismatic - Quote Generator --- WORKING
 ////////////////////////////////////////////////////
 $.ajax({
-    url: 'http://galvanize-cors-proxy.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en',
+    url: 'https://galvanize-cors-proxy.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en/',
     method: 'GET'
 }).then(function(result) {
     let quoteTxt = result.quoteText;
@@ -215,7 +215,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
-        url: `http://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9`,
+        url: `https://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9/`,
         method: 'GET'
     }).then(function(result) {
         // Weather Variables
@@ -268,7 +268,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
-        url: `http://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785`,
+        url: `https://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785/`,
         method: 'GET'
     }).then(function(result) {
         moonPhase = JSON.parse(result)[0].Phase;
@@ -289,7 +289,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#mood-search').val()
     $.ajax({
-        url: `http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${value}`,
+        url: `https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${value}/`,
         type: "GET",
         success: function(result1) {
             let gifUrl = result1.data.image_url;
@@ -305,7 +305,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     sunsign = $('#sign-search').val()
     $.ajax({
-        url: `http://galvanize-cors-proxy.herokuapp.com/http://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
+        url: `https://galvanize-cors-proxy.herokuapp.com/https://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
         method: 'GET'
     }).then(function(result) {
         let signLink = getSignImg();
