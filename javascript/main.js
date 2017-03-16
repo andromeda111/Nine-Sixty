@@ -215,7 +215,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
-        url: `https://galvanize-cors-proxy.herokuapp.com/https://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9/`,
+        url: `https://galvanize-cors-proxy.herokuapp.com/http://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units\=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9`,
         method: 'GET'
     }).then(function(result) {
         // Weather Variables
@@ -268,7 +268,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
-        url: `https://galvanize-cors-proxy.herokuapp.com/https://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785`,
+        url: `http://galvanize-cors-proxy.herokuapp.com/http://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785`,
         method: 'GET'
     }).then(function(result) {
         moonPhase = JSON.parse(result)[0].Phase;
