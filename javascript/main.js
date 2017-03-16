@@ -171,14 +171,14 @@ function selectBackground() {
             $('html').removeClass('landing').addClass('rain-shower');
         }
     }
-    // Rain
-    if (idNum[0] === '5') {
-        if (idNum === '500') {
-            $('html').removeClass('landing').addClass('rain-light');
-        } else if (idNum === '501') {
-            $('html').removeClass('landing').addClass('rain-moderate');
+    // Clouds
+    if (idNum[0] === '8') {
+        if (idNum === '800') {
+            $('html').removeClass('landing').addClass('clear-skies');
+        } else if (idNum === '804') {
+            $('html').removeClass('landing').addClass('overcast');
         } else {
-            $('html').removeClass('landing').addClass('rain-shower');
+            $('html').removeClass('landing').addClass('few-clouds');
         }
     }
 
@@ -293,7 +293,7 @@ $('.user-search').submit('click', function(e) {
         type: "GET",
         success: function(result1) {
             let gifUrl = result1.data.image_url;
-            $('.gif-block').append(`<img src="${gifUrl}" alt="">`)
+            $('.gif-block').prepend(`<img src="${gifUrl}" alt="">`)
         }
     });
 });
@@ -347,22 +347,67 @@ function randomID() {
 ////////////////////////////////////////////////////
 // To-do List
 ////////////////////////////////////////////////////
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+
+// Add a "checked" symbol when clicking on a list item
+$('ul').on('click', 'li', function(e) {
+  $(this).toggleClass('checked')
+});
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = $("#todo-input").val();
+  var t = document.createTextNode(inputValue);
+  $(li).append(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    $("#list-items").append(li);
+  }
+  $("#todo-input").val('');
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
 $(".todo-enter").submit(function(e) {
     e.preventDefault();
-    var value = $('#todo-item').val();
-    let randomListID = randomID();
-    let deleteButton;
+    newElement();
+})
 
-    if (value) {
-        $('ul').append(`<li>${value}</li>`).children(this).attr('id', `${randomListID}`);
-        // $('ul').append(`<li>${value}    <a href="#">[Delete]</a></li>`);
-        $('.empty-list').remove();
-        // document.getElementById("todo-item").value = "";
-        $('#todo-item').val('');
-    }
-    $('ul').on('click', 'li', function(e) {
-        e.preventDefault();
-        if ($(this).children().attr('id') === randomListID)
-        $(this).remove();
-    })
-});
+
+// $(".todo-enter").submit(function(e) {
+//     e.preventDefault();
+//     var value = $('#todo-item').val();
+//     let randomListID = randomID();
+//     let deleteButton;
+//
+//     if (value) {
+//         $('ul').append(`<li>${value}</li>`).children(this).attr('id', `${randomListID}`);
+//         // $('ul').append(`<li>${value}    <a href="#">[Delete]</a></li>`);
+//         $('.empty-list').remove();
+//         // document.getElementById("todo-item").value = "";
+//         $('#todo-item').val('');
+//     }
+//     $('ul').on('click', 'li', function(e) {
+//         e.preventDefault();
+//         if ($(this).children().attr('id') === randomListID)
+//         $(this).remove();
+//     })
+// });
+//
+//
+//

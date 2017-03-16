@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .landing {
     background: url('../images/landing.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -5,6 +9,7 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
 .rain-light {
     background: url('../images/weather/rain-light.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -12,6 +17,7 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
 .drizzle-rain {
     background: url('../images/weather/drizzle-rain.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -19,8 +25,33 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
 .drizzle-light {
     background: url('../images/weather/drizzle-light.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.few-clouds {
+    background: url('../images/weather/few-clouds.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.overcast {
+    background: url('../images/weather/overcast.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.clear-skies {
+    background: url('../images/weather/landing.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -36,29 +67,33 @@ body {
 
 
 /* Fonts */
+
 h1, h2, h3, h4 {
     color: white;
     text-shadow: 2px 2px 5px rgba(30, 30, 30, 1);
 }
 
 h5 {
-  font-size: 10rem;
+    font-size: 10rem;
 }
 
 #h-sign {
-  font-size: 5rem;
-  font-style: italic;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    font-size: 5rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
 /*h6 {
   font-size: 8rem;
 }*/
 
 .section-visible-toggle {
-  display: none
+    display: none
 }
+
 
 /* Clear Spaces for Section Headers*/
 
@@ -78,13 +113,12 @@ h5 {
 /*    Sections    */
 
 .user-input-section {
-  min-height: 300px;
-  padding-top: 100px;
-
-  display: flex;
-  justify-content: center;
-
+    min-height: 300px;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
 }
+
 
 /*.user-input-box {
 
@@ -109,17 +143,17 @@ h5 {
 }
 
 #w-icon {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 #w-moon>img {
-  padding-top: 10px;
-  width: 100px;
+    padding-top: 10px;
+    width: 100px;
 }
 
 #h-icon>img {
-  padding-top: 10px;
-  width: 100px;
+    padding-top: 10px;
+    width: 100px;
 }
 
 .gif-section {
@@ -136,6 +170,7 @@ h5 {
     display: flex;
     align-items: center;
 }
+
 .reddit-section {
     min-height: 10px;
     padding: 20px 0;
@@ -143,30 +178,94 @@ h5 {
     align-items: center;
 }
 
+
 /* To Do List Section*/
 
 ul {
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
-.body-trans {
-    background: rgba(255, 255, 255, .2);
+
+#list-items>li {
+    background: rgba(255, 255, 255, .5);
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    transition: .5s;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+    /* Can't select list item text */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Darker background-color on hover */
+
+#list-items>li:hover {
+    background: rgba(255, 255, 255, .7);
+}
+
+
+/* When clicked on, add a background color and strike out text */
+
+#list-items>li.checked {
+    background: rgba(140, 140, 140, .5);
+    color: #fff;
+    text-decoration: line-through;
+}
+
+
+/* Add a "checked" mark when clicked on */
+
+#list-items>li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 16px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+
+/* Style the close (DELETE) button */
+
+.close {
+    font-size: 3rem;
+    color: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 6px 16px 13px 16px
+}
+
+.close:hover {
+    background-color: rgba(150, 150, 150, .6);
+    color: white;
+}
+
+#todo-input {
+    width: 260px;
+    height: 41px;
+    padding-bottom: 4px;
+    /*padding-top: 4px;*/
 }
 
 .todo-section {
-  min-height: 500px;
+    min-height: 500px;
 }
 
 .todo-enter {
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .todo-list-master {
-  padding: 20px 5px;
-}
-.list-items>li {
-  background: rgba(255, 255, 255, .2);
-  padding: 10px;
+    padding: 20px 5px;
 }
