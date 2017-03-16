@@ -268,7 +268,7 @@ $('.user-search').submit('click', function(e) {
     e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
-        url: `https://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785/`,
+        url: `http://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785/`,
         method: 'GET'
     }).then(function(result) {
         moonPhase = JSON.parse(result)[0].Phase;
