@@ -338,3 +338,31 @@ $.ajax({
         $('#r-showerthought').append(`<p>Via <a href="${url}">reddit.com/r/showerthoughts</a></p>`)
     }
 });
+
+function randomID() {
+  let num = Math.floor((Math.random() * 1000) + 1);
+  return num;
+}
+
+////////////////////////////////////////////////////
+// To-do List
+////////////////////////////////////////////////////
+$(".todo-enter").submit(function(e) {
+    e.preventDefault();
+    var value = $('#todo-item').val();
+    let randomListID = randomID();
+    let deleteButton;
+
+    if (value) {
+        $('ul').append(`<li>${value}</li>`).children(this).attr('id', `${randomListID}`);
+        // $('ul').append(`<li>${value}    <a href="#">[Delete]</a></li>`);
+        $('.empty-list').remove();
+        // document.getElementById("todo-item").value = "";
+        $('#todo-item').val('');
+    }
+    $('ul').on('click', 'li', function(e) {
+        e.preventDefault();
+        if ($(this).children().attr('id') === randomListID)
+        $(this).remove();
+    })
+});

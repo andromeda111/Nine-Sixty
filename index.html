@@ -107,7 +107,7 @@
         </div>
 
 
-        <!-- Weather Section  TEST-->
+        <!-- Weather Section -->
 
         <div class="row">
             <div class="container top-clear-section">
@@ -140,43 +140,6 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- Weather Section -->
-        <!--
-        <div class="row">
-            <div class="container top-clear-section">
-                <div class="col-md-12">
-                    <h1>Today's Weather</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row body-visible">
-            <div class="container weather-section">
-                <div class="col-md-4 text-center" id="w-temp">
-
-                    <div class="col-md-6 text-center" id="w-low">
-
-                    </div>
-                    <div class="col-md-6 text-center" id="w-high">
-
-                    </div>
-                </div>
-                <div class="col-md-4 text-center" id="w-icon">
-
-                </div>
-                <div class="col-md-4 text-center" id="w-moon">
-
-                    <div class="col-md-6 text-center" id="w-sunrise">
-
-                    </div>
-                    <div class="col-md-6 text-center" id="w-sunset">
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
 
 
         <!-- GIPHY Section -->
@@ -236,8 +199,38 @@
             </div>
         </div>
 
-
-
+        <!-- To-Do Section -->
+        <div class="row">
+            <div class="container clear-section">
+                <div class="col-md-12">
+                    <h1>To-Do List</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1 text-center todo-section">
+                <div>
+                  <form class="todo-enter" action="index.html" method="post">
+                    <input id="todo-item" type="text" name="todo-item" value="">
+                    <input type="submit" name="" value="Add Todo">
+                  </form>
+                </div>
+                <div class="col-xs-8 col-xs-offset-2 todo-list-master">
+                      <div class="col-xs-12">
+                        <!-- remove this paragraph when the first todo item gets added -->
+                        <p class="empty-list">Add item.</p>
+                        <ul class="list-items text-left">
+                          <!-- todo items will go here which should look like so: -->
+                          <!-- <li>todo item text <a href="#">[ Delete Me ]</a></li> -->
+                        </ul>
+                      </div>
+                      <!-- <div class="col-xs-2 delete-holder">
+                      </div> -->
+                </div>
+            </div>
+            </div>
+          </div>
     </main>
     <!-- Footer -->
     <footer>

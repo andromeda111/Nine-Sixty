@@ -142,3 +142,31 @@ h5 {
     display: flex;
     align-items: center;
 }
+
+/* To Do List Section*/
+
+ul {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.body-trans {
+    background: rgba(255, 255, 255, .2);
+}
+
+.todo-section {
+  min-height: 500px;
+}
+
+.todo-enter {
+  padding-bottom: 20px;
+}
+
+.todo-list-master {
+  padding: 20px 5px;
+}
+.list-items>li {
+  background: rgba(255, 255, 255, .2);
+  padding: 10px;
+}
