@@ -58,7 +58,7 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="zip-search">What is your ZIP code?</label>
-                            <input class="form-control" type="text" name="zip-search" id="zip-search" value="">
+                            <input class="form-control" type="text" name="zip-search" id="zip-search" pattern="\d{5}" maxlength="5" value="">
                         </div>
                     </div>
                     <div class="row">
@@ -218,6 +218,7 @@
                         <form class="todo-enter form-inline" action="index.html" method="post">
                             <input id="todo-input" type="text" name="todo-item" value="" placeholder="Task...">
                             <input class="btn btn-primary" type="submit" name="" value="Add Task">
+                            <div id="div1" class="alert text-center alert-info alert-style collapse">Enter a task</div>
                         </form>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 todo-list-master">

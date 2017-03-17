@@ -369,7 +369,7 @@ function newElement() {
   var t = document.createTextNode(inputValue);
   $(li).append(t);
   if (inputValue === '') {
-    alert("Enter a task.");
+    $("#div1").fadeIn(300).delay(2000).fadeOut(300);
   } else {
     $("#list-items").append(li);
   }

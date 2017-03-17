@@ -313,3 +313,10 @@ ul {
 .down-arrow:hover {
     border-color: black;
 }
+
+.alert-style {
+  color: black;
+  font-size: 2rem;;
+  width: 300px;
+  margin: auto;
+}
