@@ -45,11 +45,16 @@
 
     <!-- Initial User Input Section -->
     <section class="row" id="input-section">
+        <div class="container">
+            <div class="col-xs-6 col-xs-offset-3 text-center">
+                <h1 class="landing-logo">Nine-Sixty</h1>
+            </div>
+        </div>
         <div class="container user-input-section">
             <div class="col-xs-10 col-md-4 panel panel-default text-center body-visible">
+                <br>
                 <p>Enter the following information:</p>
                 <form class="user-search col-md-8 col-md-offset-2" action="index.html" method="post">
-
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="zip-search">What is your ZIP code?</label>
@@ -58,7 +63,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label for="mood-search">What is your current mood?</label>
+                            <label for="mood-search">How are you feeling?</label>
                             <input class="form-control" type="text" name="mood-search" id="mood-search" value="">
                         </div>
                     </div>
@@ -78,9 +83,13 @@
                               <option value="scorpio">Scorpio</option>
                               <option value="taurus">Taurus</option>
                               <option value="virgo">Virgo</option>
+                            </select>
                         </div>
                     </div>
                     <input class="btn btn-primary" type="submit" name="search-submit" value="Submit">
+                    <div class="">
+                        <br>
+                    </div>
                 </form>
             </div>
         </div>
@@ -94,11 +103,7 @@
         <div class="row">
             <div class="container">
                 <div class="col-md-10 col-md-offset-1 text-center intro-section">
-
-
-
                     <div class="col-md-12 insp-quote-block">
-
                     </div>
                 </div>
             </div>
@@ -142,7 +147,7 @@
 
 
         <!-- GIPHY Section -->
-        <div class="row">
+        <div id="anchor-one" class="row">
             <div class="container clear-section">
                 <div class="col-md-12">
                     <h1>You are feeling</h1>
@@ -159,7 +164,7 @@
 
 
         <!-- Horoscope Section -->
-        <div class="row">
+        <div id="anchor-two" class="row">
             <div class="container clear-section">
                 <div class="col-md-12">
                     <h1>Daily Horoscope</h1>
@@ -181,7 +186,7 @@
         </div>
 
         <!-- Reddit Section -->
-        <div class="row">
+        <div id="anchor-three" class="row">
             <div class="container clear-section">
                 <div class="col-md-12">
                     <h1>Showerthought</h1>
@@ -199,7 +204,7 @@
         </div>
 
         <!-- To-Do Section -->
-        <div class="row">
+        <div id="anchor-four" class="row">
             <div class="container clear-section">
                 <div class="col-md-12">
                     <h1>To-Do</h1>
@@ -209,21 +214,21 @@
         <div class="row">
             <div class="container">
                 <div class="col-md-10 col-md-offset-1 text-center todo-section">
-                <div>
-                  <form class="todo-enter form-inline" action="index.html" method="post">
-                    <input id="todo-input"type="text" name="todo-item" value="" placeholder="Task...">
-                    <input class="btn btn-primary"type="submit" name="" value="Add Task">
-                  </form>
-                </div>
-                <div class="col-xs-8 col-xs-offset-2 todo-list-master">
-                      <div class="col-xs-12">
-                        <ul id="list-items" class="text-left">
-                        </ul>
-                      </div>
+                    <div>
+                        <form class="todo-enter form-inline" action="index.html" method="post">
+                            <input id="todo-input" type="text" name="todo-item" value="" placeholder="Task...">
+                            <input class="btn btn-primary" type="submit" name="" value="Add Task">
+                        </form>
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2 todo-list-master">
+                        <div class="col-xs-12">
+                            <ul id="list-items" class="text-left">
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-          </div>
+        </div>
     </main>
     <!-- Footer -->
     <footer>

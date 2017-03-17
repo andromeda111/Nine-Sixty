@@ -120,9 +120,15 @@ h5 {
 
 /* User Input Section*/
 
+.landing-logo {
+    /*display: flex;
+  justify-content: center;*/
+    font-size: 6rem;
+}
+
 .user-input-section {
     min-height: 300px;
-    padding-top: 100px;
+    padding-top: 50px;
     display: flex;
     justify-content: center;
 }
@@ -203,7 +209,7 @@ ul {
 }
 
 #list-items>li {
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .7);
     padding: 10px;
     cursor: pointer;
     position: relative;
@@ -241,14 +247,14 @@ ul {
 /* Darker background-color on hover */
 
 #list-items>li:hover {
-    background: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, .9);
 }
 
 
 /* When clicked on, add a background color and strike out text */
 
 #list-items>li.checked {
-    background: rgba(140, 140, 140, .5);
+    background: rgba(140, 140, 140, .7);
     color: #fff;
     text-decoration: line-through;
 }
@@ -284,4 +290,26 @@ ul {
 .close:hover {
     background-color: rgba(150, 150, 150, .6);
     color: white;
+}
+
+
+/* Down Arrow for scrolling */
+
+.down-arrow {
+    content: '';
+    position: absolute;
+    border-color: #888;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    top: 0px;
+    left: 49%;
+    padding-bottom: 10px;
+    margin: 0;
+    transform: rotate(45deg);
+    height: 30px;
+    width: 30px;
+}
+
+.down-arrow:hover {
+    border-color: black;
 }

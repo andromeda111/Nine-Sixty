@@ -77,10 +77,7 @@ function convertMonth() {
     }
     return result;
 }
-
-////////////////////////////////////////////////////
-// MOON PHASE IMAGE LINK
-////////////////////////////////////////////////////
+// Moon Phase to Image Link
 function getPhase() {
     switch (moonPhase) {
         case "New Moon":
@@ -111,9 +108,6 @@ function getPhase() {
     return result;
 }
 
-////////////////////////////////////////////////////
-// SELET HOROSCOPE SIGN IMAGE
-////////////////////////////////////////////////////
 function getSignImg() {
     switch (sunsign) {
         case 'aries':
@@ -156,9 +150,7 @@ function getSignImg() {
     return result;
 }
 
-////////////////////////////////////////////////////
-// CHANGE BACKGROUND BASED ON WEATHER
-////////////////////////////////////////////////////
+
 function selectBackground() {
     let idNum = weatherID.toString()
     // Drizzle
@@ -192,17 +184,12 @@ function selectBackground() {
 
 }
 
-////////////////////////////////////////////////////
-// USER INPUT --- SUBMIT
-////////////////////////////////////////////////////
-$('.user-search').submit(function(e) {
+
+// Is it best to have all of my ajax calls under one of these?
+$('.user-search').submit('click', function(e) {
     e.preventDefault();
     $('#input-section').addClass('section-visible-toggle');
     $('#content-section').removeClass('section-visible-toggle');
-    ajaxGetWeatherData();
-    ajaxGetMoonPhase();
-    ajaxGetRandomGif();
-    ajaxGetHoroscope();
 })
 
 ////////////////////////////////////////////////////
@@ -224,7 +211,8 @@ $.ajax({
 ////////////////////////////////////////////////////
 // Weather API - OpenWeatherMap --- WORKING
 ////////////////////////////////////////////////////
-function ajaxGetWeatherData() {
+$('.user-search').submit('click', function(e) {
+    e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
         url: `https://galvanize-cors-proxy.herokuapp.com/http://api.openweathermap.org/data/2.5/weather\?zip\=${value},us\&units\=imperial\&appid\=51e7393da3b7bbeb87a0b2c743c768f9`,
@@ -254,9 +242,8 @@ function ajaxGetWeatherData() {
         let setDay = convertDay();
         let setMonth = convertMonth();
 
-        // Change background based on weather
-        selectBackground();
         // Append API Results to HTML
+        selectBackground();
         // Date
         $('.intro-section').prepend(`<h1>${setMonth} ${getDate}, ${getYear}</h1>`)
         $('.intro-section').prepend(`<h1>Welcome to ${setDay}</h1>`)
@@ -272,12 +259,13 @@ function ajaxGetWeatherData() {
     }).catch(function(error) {
         console.log('Error: ', error);
     })
-}
+})
 
 ////////////////////////////////////////////////////
 // Moon Phase API -  --- WORKING
 ////////////////////////////////////////////////////
-function ajaxGetMoonPhase() {
+$('.user-search').submit('click', function(e) {
+    e.preventDefault();
     let value = $('#zip-search').val()
     $.ajax({
         url: `https://galvanize-cors-proxy.herokuapp.com/http://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785`,
@@ -291,13 +279,14 @@ function ajaxGetMoonPhase() {
     }).catch(function(error) {
         console.log('Error: ', error);
     })
-}
+})
 
 
 ////////////////////////////////////////////////////
 // GIPHY -- Random Gif --- WORKING
 ////////////////////////////////////////////////////
-function ajaxGetRandomGif() {
+$('.user-search').submit('click', function(e) {
+    e.preventDefault();
     let value = $('#mood-search').val()
     $.ajax({
         url: `https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${value}/`,
@@ -307,12 +296,13 @@ function ajaxGetRandomGif() {
             $('.gif-block').prepend(`<img src="${gifUrl}" alt="">`)
         }
     });
-}
+});
 
 ////////////////////////////////////////////////////
 // Horiscope API - WORKING
 ////////////////////////////////////////////////////
-function ajaxGetHoroscope() {
+$('.user-search').submit('click', function(e) {
+    e.preventDefault();
     sunsign = $('#sign-search').val()
     $.ajax({
         url: `https://galvanize-cors-proxy.herokuapp.com/https://theastrologer-api.herokuapp.com/api/horoscope/${sunsign}/today`,
@@ -326,7 +316,7 @@ function ajaxGetHoroscope() {
     }).catch(function(error) {
         console.log('Error: ', error);
     })
-}
+})
 
 ////////////////////////////////////////////////////
 // REDDIT SCRAPER Showerthoughts -- WORKING
@@ -349,27 +339,31 @@ $.ajax({
     }
 });
 
+function randomID() {
+  let num = Math.floor((Math.random() * 1000) + 1);
+  return num;
+}
 
 ////////////////////////////////////////////////////
-// TO-DO LIST
+// To-do List
 ////////////////////////////////////////////////////
-// global vars
+// Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
 
-// Add checkbox when item clicked
+// Add a "checked" symbol when clicking on a list item
 $('ul').on('click', 'li', function(e) {
   $(this).toggleClass('checked')
 });
 
-// Create new item in list
+// Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
   var inputValue = $("#todo-input").val();
   var t = document.createTextNode(inputValue);
   $(li).append(t);
   if (inputValue === '') {
-    alert("Enter a task.");
+    alert("You must write something!");
   } else {
     $("#list-items").append(li);
   }
@@ -389,7 +383,6 @@ function newElement() {
   }
 }
 
-// To-do Form Submit
 $(".todo-enter").submit(function(e) {
     e.preventDefault();
     newElement();
