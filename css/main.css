@@ -30,6 +30,22 @@ body {
     background-size: cover;
 }
 
+.rain-moderate {
+    background: url('../images/weather/rain-moderate.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.rain-shower {
+    background: url('../images/weather/rain-shower.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .drizzle-rain {
     background: url('../images/weather/drizzle-rain.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
