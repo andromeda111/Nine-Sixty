@@ -8,6 +8,9 @@ let getYear;
 let moonPhase;
 let sunsign;
 let weatherID;
+let weatherSunrise;
+var dateFunction = new Date();
+var dateFind = dateFunction.getTime();
 
 function convertDay() {
     switch (getDay) {
@@ -237,7 +240,7 @@ function ajaxGetWeatherData() {
         let weatherDescription = result.weather[0].description;
         weatherID = result.weather[0].id;
         let weatherIcon = result.weather[0].icon;
-        let weatherSunrise = result.sys.sunrise;
+        weatherSunrise = result.sys.sunrise;
         let weatherSunset = result.sys.sunset;
         // Time Variables
         let timestampRise = new Date(`${weatherSunrise}` * 1000);
@@ -280,7 +283,7 @@ function ajaxGetWeatherData() {
 function ajaxGetMoonPhase() {
     let value = $('#zip-search').val()
     $.ajax({
-        url: `https://galvanize-cors-proxy.herokuapp.com/http://farmsense-prod.apigee.net/v1/moonphases/\?d\=1489457785`,
+        url: `https://galvanize-cors-proxy.herokuapp.com/http://farmsense-prod.apigee.net/v1/moonphases/?d=${dateFind}`,
         method: 'GET'
     }).then(function(result) {
         moonPhase = JSON.parse(result)[0].Phase;
