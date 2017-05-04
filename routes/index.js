@@ -16,4 +16,10 @@ router.get('/:id', function(req, res, next) {
   })
 });
 
+router.post('/', function(req, res, next) {
+  var taskData = req.body.task
+  console.log(taskData);
+  res.redirect('http://www.google.com');
+});
+
 module.exports = router;

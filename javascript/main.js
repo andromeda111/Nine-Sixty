@@ -375,6 +375,7 @@ function newElement() {
     $("#div1").fadeIn(300).delay(2000).fadeOut(300);
   } else {
     $("#list-items").append(li);
+    ajaxPostTask()
   }
   $("#todo-input").val('');
 
@@ -397,3 +398,18 @@ $(".todo-enter").submit(function(e) {
     e.preventDefault();
     newElement();
 })
+
+// AJAX to post to database
+function ajaxPostTask() {
+  var inputValue = $("#todo-input").val()
+  console.log('ajax var test' + inputValue);
+    $.ajax({
+        url: `http://localhost:3000/`,
+        method: 'POST',
+        data: {task: inputValue, user_id: 1}
+    }).then(function(result) {
+      console.log('Succesful Post?');
+    }).catch(function(error) {
+        console.log('Error: ', error);
+    })
+}
