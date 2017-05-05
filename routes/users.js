@@ -1,23 +1,42 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db')
+const bcrypt = require('bcrypt-as-promised');
 
-/* GET home page. */
-router.post('/', function(req, res, next) {
 
-  var hashed_pw = req.body.password
-  var newUser = {
-  username: req.body.username,
-  hashed_pw: hashed_pw
-}
+// Register user
+router.post('/', (req, res, next) => {
+  bcrypt.hash(req.body.password, 12)
+  .then(hashed_pw => {
+    var newUser = {
+      username: req.body.username,
+      hashed_pw: hashed_pw,
+    }
 
-  return db('users').insert(newUser, '*').then(user => {
+    console.log(newUser)
 
-    var test = user[0]
+    return db('users').insert(newUser, '*')
+      .then(users => {
+        console.log('///////' + users);
+        var user = users[0]
+        console.log(user);
+        delete user.hashed_pw
 
-    res.json(test);
+        req.session.userId = user.id
+        req.session.username = user.username
+
+        res.redirect(`/home`)
+      }).catch((err) => {
+        next(err)
+      })
   })
-});
+})
+
+router.get('/logout', (req, res, next) => {
+  delete req.session.userId
+  delete req.session.username
+  res.redirect('/')
+})
 
 
 module.exports = router;

@@ -32,13 +32,11 @@
   </head>
   <body>
     <!-- Navigation Bar / Header -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div>
-                <a class="navbar-brand" href="#">Nine-Sixty</a>
-            </div>
-        </div>
-    </nav>
+    {{#if user.userId }}
+      {{> authNav}}
+    {{else}}
+      {{> unauthNav}}
+    {{/if}}
     {{{body}}}
   </body>
 </html>

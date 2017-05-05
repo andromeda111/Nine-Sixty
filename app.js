@@ -1,37 +1,42 @@
 'use strict'
 
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config()
-// }
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 var cookieSession = require('cookie-session')
 var app = express();
+var hbs = require('hbs')
 
 // Route Requires
 var index = require('./routes/index');
 var session = require('./routes/session')
 var users = require('./routes/users');
+var home = require('./routes/home');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials')
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.enable('trust proxy')
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(cookieSession({
-//   name: 'nine-sixty',
-//   secret: process.env.SESSION_SECRET,
-//   secure: app.get('env') === 'production'
-// }))
+app.use(cookieSession({
+  name: 'nine-sixty',
+  secret: process.env.SESSION_SECRET,
+  secure: app.get('env') === 'production'
+}))
 
 // Look into later ? /////
 app.use((req, res, next) => {
@@ -41,8 +46,9 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.use('/', index);
-// app.use('/sessions', sessions)
 app.use('/users', users)
+app.use('/home', home)
+app.use('/session', session)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

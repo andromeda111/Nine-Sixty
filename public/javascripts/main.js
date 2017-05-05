@@ -375,7 +375,7 @@ function newElement() {
     $("#div1").fadeIn(300).delay(2000).fadeOut(300);
   } else {
     $("#list-items").append(li);
-    ajaxPostTask()
+    // ajaxPostTask()
   }
   $("#todo-input").val('');
 

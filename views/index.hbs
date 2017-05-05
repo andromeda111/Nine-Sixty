@@ -2,6 +2,9 @@
   <br>
   <h3>Welcome!</h3>
   <br>
+  {{#if noUser}}
+  <div id="div1" class="alert text-center alert-info alert-style collapse">Enter a task</div>
+  {{/if}}
   <form action="index.html" method="post">
     <div class="form-group col-md-8 col-md-offset-2">
       <input id="login-username" class="form-control" type="text" name="username" value="" placeholder="Username">
