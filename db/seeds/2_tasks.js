@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
       ])
     }).then(function () {
       return knex.raw(
-          "SELECT setval('tasks', (SELECT MAX (id) FROM tasks))"
+          "SELECT setval('tasks_id_seq', (SELECT MAX (id) FROM tasks))"
       )
     }).catch(function (error) {
       console.error('Oops! tasks - ', error)
