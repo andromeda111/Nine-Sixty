@@ -6,10 +6,10 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('users').insert([
         {
-          id: 1, username: 'andromeda111', email: 'andromeda111@email.com', hashed_pw: 'asdf'
+          id: 1, username: 'andromeda111', hashed_pw: 'asdf'
         },
         {
-          id: 2, username: 'borgcube636', email: 'borgcube636@email.com', hashed_pw: 'borg'
+          id: 2, username: 'borgcube636', hashed_pw: 'borg'
         }
       ])
     }).then(function () {

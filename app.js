@@ -1,25 +1,48 @@
+'use strict'
+
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-
-var index = require('./routes/index');
-
+var cookieSession = require('cookie-session')
 var app = express();
+
+// Route Requires
+var index = require('./routes/index');
+var session = require('./routes/session')
+var users = require('./routes/users');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.enable('trust proxy')
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(cookieSession({
+//   name: 'nine-sixty',
+//   secret: process.env.SESSION_SECRET,
+//   secure: app.get('env') === 'production'
+// }))
 
+// Look into later ? /////
+app.use((req, res, next) => {
+  if (req.session) res.locals.user = req.session
+  next()
+})
+
+// ROUTES
 app.use('/', index);
+// app.use('/sessions', sessions)
+app.use('/users', users)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

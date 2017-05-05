@@ -4,7 +4,7 @@ var db = require('../db')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Nine Sixty' });
+  res.render('index');
 });
 
 router.get('/:id', function(req, res, next) {

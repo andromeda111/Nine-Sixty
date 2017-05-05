@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgress://localhost/ninesixty',
+    connection: 'postgress://localhost/nine-sixty',
     migrations: {
       directory: path.join(__dirname, 'db', 'migrations')
     },
