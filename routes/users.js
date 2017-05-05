@@ -3,6 +3,18 @@ var router = express.Router();
 var db = require('../db')
 const bcrypt = require('bcrypt-as-promised');
 
+// Authorize (Middleware)
+const authorize = function(req, res, next) {
+  console.log(req.session);
+  if (!req.session.userId) {
+    return next({
+      status: 401,
+      message: 'Unauthorized'
+    });
+  }
+
+  next();
+};
 
 // Register user
 router.post('/', (req, res, next) => {
@@ -17,7 +29,7 @@ router.post('/', (req, res, next) => {
 
     return db('users').insert(newUser, '*')
       .then(users => {
-        console.log('///////' + users);
+        console.log(users);
         var user = users[0]
         console.log(user);
         delete user.hashed_pw
@@ -32,11 +44,12 @@ router.post('/', (req, res, next) => {
   })
 })
 
+// Logout User
 router.get('/logout', (req, res, next) => {
-  delete req.session.userId
-  delete req.session.username
+  req.session = null
   res.redirect('/')
 })
+
 
 
 module.exports = router;
