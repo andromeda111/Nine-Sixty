@@ -11,13 +11,14 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 var cookieSession = require('cookie-session')
+var methodOverride = require('method-override')
 var app = express();
 var hbs = require('hbs')
 
 // Route Requires
 var index = require('./routes/index');
-var session = require('./routes/session')
-var users = require('./routes/users');
+// var session = require('./routes/session')
+// var users = require('./routes/users');
 var home = require('./routes/home');
 
 // view engine setup
@@ -28,6 +29,7 @@ hbs.registerPartials(__dirname + '/views/partials')
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.enable('trust proxy')
 app.use(logger('dev'));
+app.use(methodOverride('_method'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
@@ -46,9 +48,9 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.use('/', index);
-app.use('/users', users)
+// app.use('/users', users)
 app.use('/home', home)
-app.use('/session', session)
+// app.use('/session', session)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

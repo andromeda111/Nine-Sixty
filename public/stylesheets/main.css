@@ -5,12 +5,21 @@
 }
 
 body {
-    padding-top: 56px;
+    margin-top: 56px;
     background: rgba(255, 255, 255, 0);
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
 }
 
+/*.navbar-header {
+  margin-top: 56px;
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+}*/
+
+nav a {
+    color: black !important;
+}
 
 /* Change backround based on weather */
 
