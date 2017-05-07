@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments()
     table.string('username').notNullable()
     table.specificType('hashed_pw', 'char(60)').notNullable()
+    table.string('zip').notNullable().default('')
+    table.string('sign').notNullable().default('')
     table.timestamps(true, true)
   })
 };

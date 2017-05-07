@@ -8,21 +8,25 @@ exports.seed = function(knex, Promise) {
         {
           id: 1,
           task: 'Task 1 user 1',
+          checked: false,
           user_id: 1
         },
         {
           id: 2,
           task: 'Task 2 user 1',
+          checked: true,
           user_id: 1
         },
         {
           id: 3,
           task: 'Task 1 user 2',
+          checked: true,
           user_id: 2
         },
         {
           id: 4,
           task: 'Task 2 user 2',
+          checked: false,
           user_id: 2
         }
       ])
