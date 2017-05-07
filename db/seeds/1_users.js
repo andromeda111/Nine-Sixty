@@ -7,11 +7,13 @@ exports.seed = function(knex, Promise) {
       return knex('users').insert([
         {
           id: 1, username: 'andromeda111', hashed_pw: '$2a$12$mbwCC.IudRr2ac0Kj53ZTOo9Nyd5kgHBYrvvHFWGA40LI0ided1Xe',
+          initiated: false,
           zip: '98105',
           sign: 'pisces'
         },
         {
           id: 2, username: 'borgcube636', hashed_pw: '$2a$12$skceB.Cmnz2.bKdmUImBKum0Z1qN0YyCc7QfKvEg6Qd5Qc8t.lLgm',
+          initiated: true,
           zip: '97007',
           sign: 'virgo'
         }
