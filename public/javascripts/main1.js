@@ -198,28 +198,34 @@ function selectBackground() {
 ////////////////////////////////////////////////////
 // USER INPUT --- SUBMIT
 ////////////////////////////////////////////////////
-$.ajax({
-    url: `http://localhost:3000/home/check`,
-    method: 'GET',
-}).then(function(userData) {
-  console.log('userData: ' + userData);
-    ajaxGetWeatherData(userData[0].zip);
-    ajaxGetMoonPhase(userData[0].zip);
-    ajaxGetRandomGif();
-    ajaxGetHoroscope(userData[0].sign);
-}).catch(function(error) {
-    console.log('Error: ', error);
-});
+// (function homeInitiate() {
+//   $.ajax({
+//       url: `http://localhost:3000/home/check`,
+//       method: 'GET',
+//   }).then(function(result) {
+//     if (result[0].initiated === true) {
+//       console.log('Initiated: ' + result[0].initiated);
+//       $('#input-section').addClass('section-visible-toggle');
+//       $('#content-section').removeClass('section-visible-toggle');
+//       ajaxGetWeatherData(result[0].zip);
+//       ajaxGetMoonPhase(result[0].zip);
+//       ajaxGetRandomGif();
+//       ajaxGetHoroscope(result[0].sign);
+//     }
+//   }).catch(function(error) {
+//       console.log('Error: ', error);
+//     })
+// })();
 
-// $('.user-search').submit(function(e) {
-//     e.preventDefault();
-//     $('#input-section').addClass('section-visible-toggle');
-//     $('#content-section').removeClass('section-visible-toggle');
-//     ajaxGetWeatherData();
-//     ajaxGetMoonPhase();
-//     ajaxGetRandomGif();
-//     ajaxGetHoroscope();
-// })
+$('.user-search').submit(function(e) {
+    e.preventDefault();
+    $('#input-section').addClass('section-visible-toggle');
+    $('#content-section').removeClass('section-visible-toggle');
+    ajaxGetWeatherData();
+    ajaxGetMoonPhase();
+    ajaxGetRandomGif();
+    ajaxGetHoroscope();
+})
 
 ////////////////////////////////////////////////////
 // Forismatic - Quote Generator --- WORKING

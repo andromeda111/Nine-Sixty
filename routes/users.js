@@ -3,6 +3,8 @@ var router = express.Router();
 var db = require('../db')
 const bcrypt = require('bcrypt-as-promised');
 
+// NOT CURRENTLY USING _ DELETE LATER
+
 // Authorize (Middleware)
 const authorize = function(req, res, next) {
   console.log(req.session);
