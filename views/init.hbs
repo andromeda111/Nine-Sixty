@@ -1,0 +1,51 @@
+<!-- Initial User Input Section -->
+<section class="row" id="input-section">
+    <div class="container">
+        <div class="col-xs-6 col-xs-offset-3 text-center">
+            <h1 class="landing-logo">Nine-Sixty</h1>
+        </div>
+    </div>
+    <div class="container user-input-section">
+        <div class="col-xs-10 col-md-4 panel panel-default text-center body-visible">
+            <br>
+            <p>Enter the following initial setup information:</p>
+            <form class="user-search col-md-8 col-md-offset-2" action="/init?_method=PUT" method="post">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="zip-search">What is your ZIP code?</label>
+                        <input class="form-control" type="text" name="zip-search" id="zip-search" pattern="\d{5}" maxlength="5" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="mood-search">How are you feeling?</label>
+                        <input class="form-control" type="text" name="mood-search" id="mood-search" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="sign-search">What is your Zodiac sign?:</label>
+                        <select class="form-control" type="select" name="sign-search" id="sign-search" value="">
+                          <option value="aries">Aries</option>
+                          <option value="aquarius">Aquarius</option>
+                          <option value="cancer">Cancer</option>
+                          <option value="capricorn">Capricorn</option>
+                          <option value="gemini">Gemini</option>
+                          <option value="leo">Leo</option>
+                          <option value="libra">Libra</option>
+                          <option value="pisces">Pisces</option>
+                          <option value="sagittarius">Sagittarius</option>
+                          <option value="scorpio">Scorpio</option>
+                          <option value="taurus">Taurus</option>
+                          <option value="virgo">Virgo</option>
+                        </select>
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit" name="search-submit" value="Submit">
+                <div class="">
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

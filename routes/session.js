@@ -3,6 +3,8 @@ var router = express.Router();
 var db = require('../db')
 const bcrypt = require('bcrypt-as-promised');
 
+// NOT CURRENTLY USING _ DELETE LATER
+
 /* GET home page. */
 // router.post('/', function(req, res, next) {
 //   bcrypt.hash(req.body.password, 12).then((hashed_pw) => {

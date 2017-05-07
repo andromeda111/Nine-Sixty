@@ -21,9 +21,38 @@ router.get('/', (req, res, next) => {
   if (!req.session.userId) {
     return res.render('index');
   } else {
-    return res.redirect('home');
+    db('users').select('initiated').where('id', req.session.userId)
+    .then(user => {
+      console.log(user);
+      if (user[0].initiated) {
+        console.log('returning home');
+        return res.redirect('home');
+      } else {
+        console.log('returning home to init');
+        return res.redirect('/init');
+      }
+    })
   }
 });
+
+// GET User Init
+router.get('/init', authorize, (req, res, next) => {
+  res.render('init')
+})
+
+// POST User Init
+router.put('/init', authorize, (req, res, next) => {
+  var userId = req.session.userId
+  var initiateUser = {
+    zip: req.body['zip-search'],
+    sign: req.body['sign-search'],
+    initiated: true
+  }
+  db('users').update(initiateUser, '*').where('id', userId).then((edits) => {
+    console.log(edits);
+    res.redirect('/home')
+  })
+})
 
 // User Settings
 router.get('/settings', authorize, (req, res, next) => {
@@ -116,15 +145,13 @@ router.post('/', (req, res, next) => {
 
     return db('users').insert(newUser, '*')
       .then(users => {
-        console.log(users);
         var user = users[0]
-        console.log(user);
         delete user.hashed_pw
 
         req.session.userId = user.id
         req.session.username = user.username
 
-        res.redirect(`/home`)
+        res.redirect(`/init`)
       }).catch((err) => {
         next(err)
       })
