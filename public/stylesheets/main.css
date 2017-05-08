@@ -21,6 +21,13 @@ nav a {
     color: black !important;
 }
 
+.alert {
+  -webkit-transition: opacity 3s ease-in-out;
+ -moz-transition: opacity 3s ease-in-out;
+ -ms-transition: opacity 3s ease-in-out;
+ -o-transition: opacity 3s ease-in-out;
+  opacity: 1;
+}
 /* Change backround based on weather */
 
 .landing {

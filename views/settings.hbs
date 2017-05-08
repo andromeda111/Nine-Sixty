@@ -1,12 +1,45 @@
 <div class="row">
   <div class="container col-md-4 col-md-offset-4 text-center settings-box">
-    <h3>{{userData.username}} Settings</h3>
+    <h2>{{userInfo.username}}</h2>
+    <h3>Settings:</h3>
+    <div class="">
+      <form class="" action="/settings/update?_method=PUT" method="post">
+        <label class="label label-primary" for="update-zip">Update ZIP Code</label>
+        <input class="form-group" id="update-zip" type="text" name="update-zip" value="{{userInfo.zip}}">
+        <label class="label label-primary" for="update-sign">Update Sun Sign</label>
+        <select class="form-group" type="select" name="update-sign" id="update-sign" value="">
+          <option value="{{userInfo.sign}}">{{userInfo.sign}} (current)</option>
+          <option value="aries">Aries</option>
+          <option value="aquarius">Aquarius</option>
+          <option value="cancer">Cancer</option>
+          <option value="capricorn">Capricorn</option>
+          <option value="gemini">Gemini</option>
+          <option value="leo">Leo</option>
+          <option value="libra">Libra</option>
+          <option value="pisces">Pisces</option>
+          <option value="sagittarius">Sagittarius</option>
+          <option value="scorpio">Scorpio</option>
+          <option value="taurus">Taurus</option>
+          <option value="virgo">Virgo</option>
+        </select>
+        <div class="">
+          <input class="btn btn-warning" type="submit" name="submit" value="Update Settings">
+        </div>
+      </form>
+    </div>
+    <br>
     <div>
       <h4>Delete Account</h1>
     </div>
     <form class="" action="/settings/delete-user?_method=DELETE" method="post">
       <button class="btn btn-danger" type="submit" name="submit">Delete Account</button>
     </form>
+    <br>
+    <div class="">
+      <form class="" action="/" method="GET">
+        <button class="btn btn-primary" type="submit" name="submit">Go Back</button>
+      </form>
+    </div>
   </div>
 
 </div>

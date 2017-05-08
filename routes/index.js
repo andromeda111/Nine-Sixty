@@ -56,11 +56,27 @@ router.put('/init', authorize, (req, res, next) => {
 
 // User Settings
 router.get('/settings', authorize, (req, res, next) => {
-  var userData = {
-    username: req.session.username
+  var userId = req.session.userId
+  db('users').select('*').where('id', userId).first().then(userData => {
+    var userInfo = {
+      username: userData.username,
+      zip: userData.zip,
+      sign: userData.sign
+    }
+    res.render('settings', {userInfo})
+  })
+})
+
+// Update User Settings
+router.put('/settings/update', authorize, (req, res, next) => {
+  var userId = req.session.userId
+  var updateUser = {
+    zip: req.body['update-zip'],
+    sign: req.body['update-sign']
   }
-  console.log(userData);
-  res.render('settings', {userData})
+  db('users').update(updateUser, '*').where('id', userId).returning('*').then(() => {
+    res.redirect('/home')
+  })
 })
 
 // Delete User
