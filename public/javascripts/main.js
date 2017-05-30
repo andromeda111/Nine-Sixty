@@ -211,16 +211,6 @@ $.ajax({
     console.log('Error: ', error);
 });
 
-// $('.user-search').submit(function(e) {
-//     e.preventDefault();
-//     $('#input-section').addClass('section-visible-toggle');
-//     $('#content-section').removeClass('section-visible-toggle');
-//     ajaxGetWeatherData();
-//     ajaxGetMoonPhase();
-//     ajaxGetRandomGif();
-//     ajaxGetHoroscope();
-// })
-
 ////////////////////////////////////////////////////
 // Forismatic - Quote Generator --- WORKING
 ////////////////////////////////////////////////////
@@ -360,7 +350,7 @@ function ajaxGetHoroscope(input) {
         $('#h-icon').append(`${signLink}`)
     }).catch(function(error) {
         console.log('Error: ', error);
-    })
+    });
 }
 
 ////////////////////////////////////////////////////
@@ -383,65 +373,3 @@ $.ajax({
         $('#r-showerthought').append(`<p>Via <a href="${url}">reddit.com/r/showerthoughts</a></p>`)
     }
 });
-
-
-////////////////////////////////////////////////////
-// TO-DO LIST
-////////////////////////////////////////////////////
-// global vars
-var close = document.getElementsByClassName("close");
-var i;
-
-// Add checkbox when item clicked
-$('ul').on('click', 'li', function(e) {
-  $(this).toggleClass('checked')
-});
-
-// Create new item in list
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = $("#todo-input").val();
-  var t = document.createTextNode(inputValue);
-  $(li).append(t);
-  if (inputValue === '') {
-    $("#div1").fadeIn(300).delay(2000).fadeOut(300);
-  } else {
-    $("#list-items").append(li);
-    // ajaxPostTask()
-  }
-  $("#todo-input").val('');
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-
-// To-do Form Submit
-$(".todo-enter").submit(function(e) {
-    e.preventDefault();
-    newElement();
-})
-
-// AJAX to post to database
-function ajaxPostTask() {
-  var inputValue = $("#todo-input").val()
-  console.log('ajax var test' + inputValue);
-    $.ajax({
-        url: `http://localhost:3000/`,
-        method: 'POST',
-        data: {task: inputValue, user_id: 1}
-    }).then(function(result) {
-      console.log('Succesful Post?');
-    }).catch(function(error) {
-        console.log('Error: ', error);
-    })
-}
